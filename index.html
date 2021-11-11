@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JIRA Roadmap bookmarklet</title>
+  </head>
+  <body>
+    <p>To add JIRA Roadmap bookmarklet to your Chrome browser please follow these steps:</p>
+    <ol>
+      <li>In Chrome, click Bookmarks->Bookmark Manager (or press Ctrl+Shift+O)</li>
+      <li>Click "Organize" in the right top corner (three vertical dots)</li>
+      <li>Click "Add new bookmark"</li>
+      <li>Enter a name</li>
+      <li>Put the following code into the URL field:<br>
+        <textarea style="width: 600px; height: 150px">javascript:(function(){if(typeof denisov_jira_roadmap_script=='undefined'){denisov_jira_roadmap_script=document.createElement('SCRIPT');denisov_jira_roadmap_script.type='text/javascript';denisov_jira_roadmap_script.src='https://elsevier-health.github.io/biomed-jira-componentmapper/djr.js?random='+(new Date()).getTime();document.getElementsByTagName('head')[0].appendChild(denisov_jira_roadmap_script);}else{showDJBDialog();}})();</textarea>
+      </li>
+      <li>Click "Save"</li>
+    </ol>
+<!--
+    <p>To start using the tool, do the following:</p>
+    <ol>
+      <li>Create a ticket in your JIRA project with the name "Component diagram"</li>
+      <li>Add your component diagram as an attachment to this ticket. The file name of the attachment should have "component_diagram" within it.
+        <p>Examples:</p>
+        <ul>
+          <li>component_diagram.svg</li>
+          <li>component_diagram_1.png</li>
+          <li>my_cool_project_component_diagram.jpeg</li>
+        </ul>
+      </li>
+      <li>Put in any description for the ticket with the following text included: "{code}[]{code}"</li>
+      <li>Click the bookmarklet</li>
+      <li>You will enter the edit mode, where you can add JIRA component markers ontop of the diagram</li>
+      <li>Click "Save" when done</li>
+      <li>Now, whenever you open the bookmarklet with the query getting issues from your project, the diagram will show only the markers corresponding to the JIRA components associated with the issues in the query</li>
+    </ol>-->
+  </body>
+</html>
