@@ -88,7 +88,7 @@
     }
 
     function initData() {
-        $.ajax({
+        jQuery.ajax({
             url: location.origin + '/rest/api/latest/search?startAt=0&maxResults=100&jql=project=' + PROJECT
         })
         .done(initRoadmap);
