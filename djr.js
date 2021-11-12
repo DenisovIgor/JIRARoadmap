@@ -57,7 +57,7 @@
                     .${RCN}t_body .${RCN}time_col {gap: ${DAY_WIDTH*5}px; padding-left: ${DAY_WIDTH*5}px;}
                     .${RCN}sizer {height: 10px;}
                 </style>
-                <div style="position:absolute; top:10px; right:15px; color:#fff; cursor: pointer;">X</div>
+                <div style="position:absolute; top:10px; right:15px; color:#f00; background: #000; border: 1px solid #f00; width: 15px; height: 15px; cursor: pointer;">X</div>
                 <div class="${RCN}grid">
                     <div class="${RCN}t_head">
                         <div class="${RCN}name_col">Task</div>
@@ -65,7 +65,7 @@
                     </div>
                     <div class="${RCN}t_body">
                     </div>
-                    <div class="${RCN}t_foot" onscroll="scrollH(this)">
+                    <div class="${RCN}t_foot">
                         <div class="${RCN}sizer"></div>
                     </div>
                 </div>`;
@@ -104,7 +104,7 @@
         return Math.floor((new Date(date_str))/MS_PER_DAY);
     }
 
-    function scrollH() {
+    function scrollH(event,d) {
         d3.selectAll(`.${RCN}time_col`).style("margin-left",(-this.scrollLeft) + "px");
     }
 
@@ -163,7 +163,7 @@
                         .style("left", d => (numDays(d.fields.customfield_10015) - START_DATE) * DAY_WIDTH + "px")
                         .style("width", d => (numDays(d.fields.duedate) - numDays(d.fields.customfield_10015) + 1) * DAY_WIDTH + "px");
 
-        d3.select(`.${RCN}t_foot`).addEventListener("scroll",scrollH);
+        d3.select(`.${RCN}t_foot`).on("scroll",scrollH);
     }
 
     init();
