@@ -27,7 +27,7 @@
                 `<style>
                     .${RCN}grid {border: 1px solid #000; width:100%; height:100%; overflow: auto; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; font-size: 14px;}
                     .${RCN}grid * {box-sizing:border-box;}
-                    .${RCN}t_head {border-bottom: 1px solid #000; overflow-x: hidden;}
+                    .${RCN}t_head {border-bottom: 1px solid #000; overflow-x: hidden; height: 40px;}
                     .${RCN}name_col {border-right: 1px solid #000; flex: 0 0 500px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 5px; background: #fff;}
                     .${RCN}time_col,
                     .${RCN}sizer {width: ${ROADMAP_WIDTH}px; background: #fff; position: relative; z-index:-1;}
@@ -36,7 +36,7 @@
                     .${RCN}t_row:nth-child(even) .${RCN}name_col {background: #f5f5f5;}
                     .${RCN}t_row:last-child .${RCN}time_col,
                     .${RCN}t_head .${RCN}time_col {border-bottom:none;}
-                    .${RCN}t_body {height: 700px; overflow-y: scroll; overflow-x: hidden;}
+                    .${RCN}t_body {height: calc(100% - 60px); overflow-y: scroll; overflow-x: hidden;}
                     .${RCN}t_head,
                     .${RCN}t_row,
                     .${RCN}time_col {display: flex; flex-direction:row}
