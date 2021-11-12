@@ -25,7 +25,7 @@
         _dialog.style.cssText = "position:fixed; top:30px; left:50%; margin:0; border-radius:3px; height:800px; width:1200px; z-index: 1000000001; overflow: hidden; font-family:sans-serif; background:#fff; transform:translateX(-50%);";
         _dialog.innerHTML = 
                 `<style>
-                    .${RCN}grid {border: 1px solid #000; width:100%; height:calc(100% - 40px); overflow: auto; padding: 10px; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; font-size: 14px;}
+                    .${RCN}grid {border: 1px solid #000; width:100%; height:100%; overflow: auto; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; font-size: 14px;}
                     .${RCN}grid * {box-sizing:border-box;}
                     .${RCN}t_head {border-bottom: 1px solid #000; overflow-x: hidden;}
                     .${RCN}name_col {border-right: 1px solid #000; flex: 0 0 500px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 5px; background: #fff;}
@@ -56,8 +56,9 @@
                     .${RCN}grid_line {flex: 0 0 ${DAY_WIDTH*2}px; height: 100%; background: #eee; opacity: 0.5;}
                     .${RCN}t_body .${RCN}time_col {gap: ${DAY_WIDTH*5}px; padding-left: ${DAY_WIDTH*5}px;}
                     .${RCN}sizer {height: 10px;}
+                    .${RCN}close_button {position:absolute; top:10px; left:10px; color:#f00; width: 19px; height: 19px; cursor: pointer; font-weight: bold; text-align: center; text-shadow: 0px 0px 5px #000;}
                 </style>
-                <div style="position:absolute; top:10px; right:15px; color:#f00; background: #000; border: 1px solid #f00; width: 15px; height: 15px; cursor: pointer;">X</div>
+                <div class="${RCN}close_button">X</div>
                 <div class="${RCN}grid">
                     <div class="${RCN}t_head">
                         <div class="${RCN}name_col">Task</div>
