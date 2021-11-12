@@ -61,7 +61,7 @@
                 <div class="${RCN}close_button">X</div>
                 <div class="${RCN}grid">
                     <div class="${RCN}t_head">
-                        <div class="${RCN}name_col">Task</div>
+                        <div class="${RCN}name_col"></div>
                         <div class="${RCN}time_col"></div>
                     </div>
                     <div class="${RCN}t_body">
