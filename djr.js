@@ -1,4 +1,5 @@
 (function () {
+
     const PROJECT = "Dela";
 
     const MS_PER_DAY = 24*60*60*1000;
@@ -9,9 +10,14 @@
 
     const RCN = "djr_" + Math.floor(Math.random()*10000000000) + "_";
 
-    var _table, _dialog, _shader;
+    var _dialog, _shader;
 
     function init() {
+        var d3_script = document.createElement('SCRIPT');
+        d3_script.type = 'text/javascript';
+        d3_script.src = 'https://d3js.org/d3.v6.min.js';
+        document.getElementsByTagName('head')[0].appendChild(d3_script);
+        
         _shader = document.createElement('div');
         _shader.style.cssText = "position:fixed; top:0; left:0; width:100%; height:100%; z-index: 1000000000; background: #222; opacity: 0.75";
     
