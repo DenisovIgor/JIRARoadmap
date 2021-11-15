@@ -1,6 +1,6 @@
 (function () {
 
-    const PROJECT = "Dela";
+    const PROJECT = "DBK";
 
     const MS_PER_DAY = 24*60*60*1000;
     const START_DATE = numDays("2021-10-31");
