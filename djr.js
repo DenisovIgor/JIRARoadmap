@@ -11,7 +11,7 @@
     const RCN = "djr_" + Math.floor(Math.random()*10000000000) + "_";
 
     var _dialog, _shader;
-    var jira_data;
+    var jira_data = undefined;
 
     function init() {
         var d3_script = document.createElement('SCRIPT');
@@ -103,7 +103,13 @@
             url: `${location.origin}/rest/api/latest/search?startAt=${startAt}&jql=project=${project}`
         })
         .done( data => {
-                jira_data.issues.push(...data.issues);
+
+                if (jira_data == undefined) {
+                    jira_data = data;
+                }
+                else {
+                    jira_data.issues.push(...data.issues);
+                }
 
                 if ( startAt + data.maxResults < data.total ) {
                     initData(startAt + data.maxResults);
