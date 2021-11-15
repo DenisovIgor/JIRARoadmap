@@ -11,6 +11,7 @@
     const RCN = "djr_" + Math.floor(Math.random()*10000000000) + "_";
 
     var _dialog, _shader;
+    var jira_data;
 
     function init() {
         var d3_script = document.createElement('SCRIPT');
@@ -94,11 +95,20 @@
         _shader.style.display = 'none';
     }
 
-    function initData() {
+    function initData(startAt=0) {
         jQuery.ajax({
-            url: location.origin + '/rest/api/latest/search?startAt=0&maxResults=100&jql=project=' + PROJECT
+            url: `${location.origin}/rest/api/latest/search?startAt=${startAt}&jql=project=${PROJECT}`
         })
-        .done(initRoadmap);
+        .done( data => {
+                jira_data.issues.push(...data.issues);
+
+                if ( startAt + data.maxResults < data.total ) {
+                    initData(startAt + data.maxResults);
+                } else {
+                    initRoadmap();
+                }
+            }
+        );
     }
 
     function numDays( date_str ) {
@@ -109,13 +119,13 @@
         d3.selectAll(`.${RCN}time_col`).style("margin-left",(-this.scrollLeft) + "px");
     }
 
-    function initRoadmap(jira) {
-        var data = jira.issues
+    function initRoadmap() {
+        var data = jira_data.issues
                     .filter( d => d.fields.issuetype.hierarchyLevel == 1 )
                     .map( d => [ d, 
-                        jira.issues
+                        jira_data.issues
                             .filter( d1 => d1.fields.customfield_10014 == d.key )
-                            .map( d1 => [ d1, jira.issues.filter( d => d.fields.parent?.key == d1.key ) ] )
+                            .map( d1 => [ d1, jira_data.issues.filter( d => d.fields.parent?.key == d1.key ) ] )
                     ] ).flat(10);
 
 //            const month_scale_format = d3.timeFormat("%b");
