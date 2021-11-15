@@ -96,8 +96,11 @@
     }
 
     function initData(startAt=0) {
+
+        var project = d3.select("#ak-side-navigation h2").text() || PROJECT;
+
         jQuery.ajax({
-            url: `${location.origin}/rest/api/latest/search?startAt=${startAt}&jql=project=${PROJECT}`
+            url: `${location.origin}/rest/api/latest/search?startAt=${startAt}&jql=project=${project}`
         })
         .done( data => {
                 jira_data.issues.push(...data.issues);
